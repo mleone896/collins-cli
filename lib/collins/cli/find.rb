@@ -47,6 +47,7 @@ module Collins::CLI
         opts.on('-r','--role ROLE[,...]',Array,"Assets in primary role ROLE") {|v| search_attrs[:primary_role] = v}
         opts.on('-R','--secondary-role ROLE[,...]',Array,"Assets in secondary role ROLE") {|v| search_attrs[:secondary_role] = v}
         opts.on('-i','--ip-address IP[,...]',Array,"Assets with IP address[es]") {|v| search_attrs[:ip_address] = v}
+        opts.on('-q','--query QUERY', String, "Collins Query specification") { |v| search_attrs[:query] = v}
         opts.on('-S','--status STATUS[:STATE][,...]',Array,"Asset status (and optional state after :)") do |v|
           # in order to know what state was paired with what status, lets store the original params
           # so the query constructor can create the correct CQL query
